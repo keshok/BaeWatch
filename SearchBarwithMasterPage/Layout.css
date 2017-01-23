@@ -1,0 +1,262 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #4CAF50;
+}
+
+.content {
+  margin:auto;
+  width:700px;
+  background-color:white;
+  border:Solid 3px blue;
+}
+
+.leftColumn {
+  float:left;
+  padding:5px;
+  width:200px;
+}
+
+.rightColumn {
+  float:left;
+  padding:5px;
+  height:auto;
+  border-left:dotted 3px blue;
+}
+
+.clear {
+  clear:both;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#form1 input[type="text"],
+#form1 input[type="email"],
+#form1 input[type="tel"],
+#form1 input[type="url"],
+#form1 input[type="password"],
+#form1 label[type="text"],
+#form1 img,
+#form1 textarea,
+#form1 button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#form1 {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#form1 h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#form1 h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#form1 input[type="text"],
+#form1 input[type="email"],
+#form1 input[type="tel"],
+#form1 input[type="url"],
+#form1 input[type="password"],
+#form1 label[type="text"],
+#form1 img,
+#form1 textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#form1 input[type="text"]:hover,
+#form1 input[type="email"]:hover,
+#form1 input[type="tel"]:hover,
+#form1 input[type="url"]:hover,
+#form1 input[type="password"]:hover,
+#form1 label[type="text"]:hover,
+#form1 img:hover,
+#form1 textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#form1 textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#form1 button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#form1 button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#form1 button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#form1 input:focus,
+#form1 textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+
+.button {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #4CAF50;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.button:hover,
+.button4:hover {
+    background: #43A047;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:active,
+.button2:active,
+.button3:active,
+.button4:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button2 {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #f44336;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.button2:hover {
+    background: #f21c0d;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button3 {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #8c8c8c;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.button3:hover {
+    background: #808080;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button4 {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    width: 40%;
+    border: none;
+    background: #4eb151;
+    color: #FFF;
+    margin: 0 0 5px;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
