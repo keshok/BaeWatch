@@ -21,7 +21,6 @@ namespace SearchBarwithMasterPage
             string name = User.Identity.GetUserName();
             GetData(name);
             lblText.Visible = false;
-
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -62,7 +61,6 @@ namespace SearchBarwithMasterPage
                 con.Close();
                 Response.Redirect("~/Notifications.aspx");
             }
-
         }
     }
 }

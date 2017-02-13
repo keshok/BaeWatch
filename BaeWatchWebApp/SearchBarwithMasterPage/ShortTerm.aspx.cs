@@ -42,7 +42,6 @@ namespace SearchBarwithMasterPage
                 SqlParameter searchParameter = new SqlParameter("@Type", Type);
                 cmd.Parameters.Add(searchParameter);
                 con.Open();
-
                 HomepageGridView.DataSource = cmd.ExecuteReader();
                 HomepageGridView.DataBind();
                 con.Close();

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="SearchBarwithMasterPage.Register" %>
+﻿<%@ Page Title="BaeWatch Beta (Release 1.0)" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="SearchBarwithMasterPage.Register" %>
 <%@ MasterType VirtualPath="~/MasterPage.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" runat="server">
-    <link href="Layout.css" rel="stylesheet" type="text/css" />
+  <link href="Layout.css" rel="stylesheet" type="text/css" />
     <table style="width: 100%;">
         <tr>
             <td><asp:Label ID="lblUsername" runat="server" Text="Username "></asp:Label></td>
@@ -23,7 +23,7 @@
         <tr>
             <td> <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label></td>
             <td>
-                 <asp:radiobutton ID="Male" Text="Male" runat="server"></asp:radiobutton>
+                <asp:radiobutton ID="Male" Text="Male" runat="server"></asp:radiobutton>
                 <asp:radiobutton  ID="Female" Text="Female" runat="server"></asp:radiobutton>
                 <asp:radiobutton  ID="Other" Text="Other" runat="server"></asp:radiobutton>
             </td>

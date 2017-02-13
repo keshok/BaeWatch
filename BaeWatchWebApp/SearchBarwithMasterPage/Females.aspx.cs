@@ -39,7 +39,6 @@ namespace SearchBarwithMasterPage
                 HomepageGridView.DataSource = cmd.ExecuteReader();
                 HomepageGridView.DataBind();
                 con.Close();
-
             }
         }
     }

@@ -86,125 +86,112 @@ namespace SearchBarwithMasterPage
             string fileName = Path.GetFileName(postedFile.FileName);
             string fileExtension = Path.GetExtension(fileName);
 
-
-
             if(fileExtension.ToLower()==".jpg"||fileExtension.ToLower()==".bmp"||
                 fileExtension.ToLower()==".png"||fileExtension.ToLower()==".gif"||
                 Username != null || Description != null || Intrests != null )
             {
-              var userStore = new UserStore<IdentityUser>();
-              var manager = new UserManager<IdentityUser>(userStore);
+                var userStore = new UserStore<IdentityUser>();
+                var manager = new UserManager<IdentityUser>(userStore);
 
-              var user = new IdentityUser() { UserName = txtUserName.Text };
-              IdentityResult result = manager.Create(user, txtPassword.Text);
-
-
-              if (result.Succeeded)
-              {
-                  var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                  var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-
-                  Stream stream = postedFile.InputStream;
-                  BinaryReader binaryreader = new BinaryReader(stream);
-                  byte[] bytes = binaryreader.ReadBytes((int)stream.Length);
-
-                  string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
-                  using (SqlConnection con = new SqlConnection(cs))
-                  {
-                      SqlCommand cmd = new SqlCommand("spCreateUserProfile", con);
-                      cmd.CommandType = CommandType.StoredProcedure;
-
-                      SqlParameter paramName = new SqlParameter()
-                      {
-
-                          ParameterName = "@Username",
-                          Value = Username
-                      };
-                      cmd.Parameters.Add(paramName);
-
-                      SqlParameter pass = new SqlParameter()
-                      {
-                          ParameterName = "@Password",
-                          Value = Password
-                      };
-                      cmd.Parameters.Add(pass);
-                      SqlParameter paramDesc = new SqlParameter()
-                      {
-
-                          ParameterName = "@Description",
-                          Value = Description
-                      };
-                      cmd.Parameters.Add(paramDesc);
-
-                      SqlParameter paramItrest = new SqlParameter()
-                      {
-
-                          ParameterName = "@Intrests",
-                          Value = Intrests
-                      };
-                      cmd.Parameters.Add(paramItrest);
-
-                      SqlParameter paramO = new SqlParameter()
-                      {
-                          ParameterName = "@Orientation",
-                          Value = O
-
-                      };
-
-                      cmd.Parameters.Add(paramO);
-
-                      SqlParameter pType = new SqlParameter()
-                      {
-                          ParameterName = "@Type",
-                          Value = Type
-
-                      };
-                      cmd.Parameters.Add(pType);
-
-                      SqlParameter paramImageData = new SqlParameter()
-                      {
-
-                          ParameterName = "@ImageData",
-                          Value = bytes
-                      };
-                      cmd.Parameters.Add(paramImageData);
-
-                      SqlParameter paramGender = new SqlParameter()
-                      {
-
-                          ParameterName = "@Gender",
-                          Value = Gender
-
-                      };
-                      cmd.Parameters.Add(paramGender);
-
-                      SqlParameter paramNewID = new SqlParameter()
-                      {
-
-                          ParameterName = "@NewID",
-                          Value = -1,
-                          Direction = ParameterDirection.Output
-                      };
-                      cmd.Parameters.Add(paramNewID);
-
-                      con.Open();
-                      cmd.ExecuteNonQuery();
-                      con.Close();
-                  }
-                  lblMessage.Visible = true;
-                  lblMessage.ForeColor = System.Drawing.Color.Green;
-                  lblMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
-
-                  authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
-                 // Response.Redirect("~/Login.aspx");
-
-              }
-              else
-              {
-                  lblMessage.Text = result.Errors.FirstOrDefault();
-              }
+                var user = new IdentityUser() { UserName = txtUserName.Text };
+                IdentityResult result = manager.Create(user, txtPassword.Text);
 
 
+                if (result.Succeeded)
+                {
+                    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                    var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    Stream stream = postedFile.InputStream;
+                    BinaryReader binaryreader = new BinaryReader(stream);
+                    byte[] bytes = binaryreader.ReadBytes((int)stream.Length);
+
+                    string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
+                    using (SqlConnection con = new SqlConnection(cs))
+                    {
+                        SqlCommand cmd = new SqlCommand("spCreateUserProfile", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        SqlParameter paramName = new SqlParameter()
+                        {
+                            ParameterName = "@Username",
+                            Value = Username
+                        };
+                        cmd.Parameters.Add(paramName);
+
+                        SqlParameter pass = new SqlParameter()
+                        {
+                            ParameterName = "@Password",
+                            Value = Password
+                        };
+                        cmd.Parameters.Add(pass);
+
+                        SqlParameter paramDesc = new SqlParameter()
+                        {
+                            ParameterName = "@Description",
+                            Value = Description
+                        };
+                        cmd.Parameters.Add(paramDesc);
+
+                        SqlParameter paramItrest = new SqlParameter()
+                        {
+                            ParameterName = "@Intrests",
+                            Value = Intrests
+                        };
+                        cmd.Parameters.Add(paramItrest);
+
+                        SqlParameter paramO = new SqlParameter()
+                        {
+                            ParameterName = "@Orientation",
+                            Value = O
+                        };
+                        cmd.Parameters.Add(paramO);
+
+                        SqlParameter pType = new SqlParameter()
+                        {
+                            ParameterName = "@Type",
+                            Value = Type
+                        };
+                        cmd.Parameters.Add(pType);
+
+                        SqlParameter paramImageData = new SqlParameter()
+                        {
+                            ParameterName = "@ImageData",
+                            Value = bytes
+                        };
+                        cmd.Parameters.Add(paramImageData);
+
+                        SqlParameter paramGender = new SqlParameter()
+                        {
+                            ParameterName = "@Gender",
+                            Value = Gender
+                        };
+                        cmd.Parameters.Add(paramGender);
+
+                        SqlParameter paramNewID = new SqlParameter()
+                        {
+                            ParameterName = "@NewID",
+                            Value = -1,
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(paramNewID);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    lblMessage.Visible = true;
+                    lblMessage.ForeColor = System.Drawing.Color.Green;
+                    lblMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
+
+                    authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
+                    // Response.Redirect("~/Login.aspx");
+                }
+
+                else
+                {
+                    lblMessage.Text = result.Errors.FirstOrDefault();
+                }
             }
 
             else

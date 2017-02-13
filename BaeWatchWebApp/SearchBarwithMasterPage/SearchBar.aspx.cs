@@ -22,10 +22,10 @@ namespace SearchBarwithMasterPage
             GetData(Master.SearchTerm);
         }
        protected void LinkButton1_Click(object sender, EventArgs e)
-       {
-           Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
+        {
+            Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
 
-       }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace SearchBarwithMasterPage
                con.Open();
                GridView1.DataSource = cmd.ExecuteReader();
                GridView1.DataBind();
-            }
+           }
         }
     }
 }

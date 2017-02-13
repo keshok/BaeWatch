@@ -27,16 +27,14 @@ namespace SearchBarwithMasterPage
                     Response.Redirect("Homepage.aspx");
                 }
 
-
                 string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(cs))
                 {
-
                     SqlCommand cmd2 = new SqlCommand("getImageID", conn);
                     cmd2.CommandType = CommandType.StoredProcedure;
+
                     SqlParameter paramID = new SqlParameter()
                     {
-
                         ParameterName = "@Id",
                         Value = userID
                     };
@@ -44,6 +42,7 @@ namespace SearchBarwithMasterPage
 
                     SqlCommand cmd3 = new SqlCommand("viewComments", conn);
                     cmd3.CommandType = CommandType.StoredProcedure;
+
                     SqlParameter PID = new SqlParameter()
                     {
                         ParameterName = "@ID",
@@ -53,6 +52,7 @@ namespace SearchBarwithMasterPage
 
                     SqlCommand cmd = new SqlCommand("spGetUserID", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     SqlParameter param = new SqlParameter("@ID", userID);
                     cmd.Parameters.Add(param);
                     conn.Open();
@@ -72,17 +72,13 @@ namespace SearchBarwithMasterPage
                             lblGender.Text = rdr["Gender"].ToString();
                             lblO.Text = rdr["Orientation"].ToString();
                             lblType.Text = rdr["Type"].ToString();
-
                         }
                     }
-
                     byte[] bytes = (byte[])cmd2.ExecuteScalar();
                     string strBase64 = Convert.ToBase64String(bytes);
                     ProfilePic.ImageUrl = "data:Image/png;base64," + strBase64;
                     conn.Close();
-
                 }
-
             }
         }
 
@@ -117,7 +113,6 @@ namespace SearchBarwithMasterPage
                     Value = -1,
                     Direction = ParameterDirection.Output
                 };
-
                 cmd.Parameters.Add(paramNewID);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -127,14 +122,17 @@ namespace SearchBarwithMasterPage
                 //Comment Notifications
                 SqlCommand Notify = new SqlCommand("spGetNotifications", con);
                 Notify.CommandType = CommandType.StoredProcedure;
+
                 //Get Username
                 string username = "";
                 string userID = Request.QueryString["ID"];
                 SqlCommand cmd2 = new SqlCommand("spGetUserID", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter param = new SqlParameter("@ID", userID);
                 cmd2.Parameters.Add(param);
                 con.Open();
+
                 SqlDataReader rdr = cmd2.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -148,18 +146,21 @@ namespace SearchBarwithMasterPage
                     Value = username
                 };
                 Notify.Parameters.Add(Sender);
+
                 SqlParameter Reciver = new SqlParameter()
                 {
                     ParameterName = "@Reciver",
                     Value = User.Identity.GetUserName()
                 };
                 Notify.Parameters.Add(Reciver);
+
                 SqlParameter Message = new SqlParameter()
                 {
                     ParameterName = "@Message",
                     Value = User.Identity.GetUserName() + " has posted a comment saying " + Comments + " on your profile"
                 };
                 Notify.Parameters.Add(Message);
+
                 SqlParameter RID = new SqlParameter()
                 {
                     ParameterName = "@ID",
@@ -170,6 +171,7 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd3 = new SqlCommand("spGetProfileByName", con);
                 cmd3.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser1 = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -177,21 +179,23 @@ namespace SearchBarwithMasterPage
                 };
                 cmd3.Parameters.Add(paramUser1);
                 con.Open();
+
                 SqlDataReader rdr2 = cmd3.ExecuteReader();
                 while (rdr2.Read())
                 {
                     ID1 = Convert.ToInt32(rdr2["ID"]);
                 }
                 con.Close();
+
                 SqlParameter SID = new SqlParameter()
                 {
                     ParameterName = "@SID",
                     Value = ID1
                 };
                 Notify.Parameters.Add(SID);
+
                 SqlParameter paramNewID1 = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output
@@ -201,36 +205,32 @@ namespace SearchBarwithMasterPage
                 con.Open();
                 Notify.ExecuteNonQuery();
                 con.Close();
-                
-
-
-
             }
             string userID1 = Request.QueryString["ID"];
-Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
+            Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
         }
-
-
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Get Name and ID of profile
+            //Get Name and ID of Profile
             string username = "";
             string userID = Request.QueryString["ID"];
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(cs))
             {
-
                 SqlCommand cmd2 = new SqlCommand("spGetUserID", conn);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter param = new SqlParameter("@ID", userID);
                 cmd2.Parameters.Add(param);
                 conn.Open();
+
                 SqlDataReader rdr = cmd2.ExecuteReader();
                 while (rdr.Read())
                 {
                     username = rdr["Username"].ToString();
                 }
+
                 SqlCommand cmd = new SqlCommand("spMakeFriends", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -257,9 +257,9 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                     Value = User.Identity.GetUserName()
                 };
                 cmd.Parameters.Add(paramName);
+
                 SqlParameter paramNewID = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output
@@ -273,21 +273,24 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 lblMessage.Visible = true;
                 lblMessage.Text = "Added to Friends List";
 
-                //Notifications for adding for adding to friends list
+                //Notifictions for adding for adding to friends list
                 SqlCommand Notify = new SqlCommand("spGetNotifications", conn);
                 Notify.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter Sender = new SqlParameter()
                 {
                     ParameterName = "@Sender",
                     Value = User.Identity.GetUserName()
                 };
                 Notify.Parameters.Add(Sender);
+
                 SqlParameter Reciver = new SqlParameter()
                 {
                     ParameterName = "@Reciver",
                     Value = username
                 };
                 Notify.Parameters.Add(Reciver);
+
                 SqlParameter Message = new SqlParameter()
                 {
                     ParameterName = "@Message",
@@ -300,6 +303,7 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
 
                 SqlCommand cmd3 = new SqlCommand("spGetProfileByName", conn);
                 cmd3.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser1 = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -307,6 +311,7 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 };
                 cmd3.Parameters.Add(paramUser1);
                 conn.Open();
+
                 SqlDataReader rdr2 = cmd3.ExecuteReader();
                 while (rdr2.Read())
                 {
@@ -320,15 +325,16 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                     Value = Request.QueryString["ID"]
                 };
                 Notify.Parameters.Add(RID);
+
                 SqlParameter SID = new SqlParameter()
                 {
                     ParameterName = "@SID",
                     Value = ID
                 };
                 Notify.Parameters.Add(SID);
+
                 SqlParameter paramNewID1 = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output
@@ -337,9 +343,6 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 conn.Open();
                 Notify.ExecuteNonQuery();
                 conn.Close();
-
-
-
             }
         }
 
@@ -350,18 +353,20 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(cs))
             {
-
                 SqlCommand cmd = new SqlCommand("spGetUserID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter param = new SqlParameter("@ID", userID);
                 cmd.Parameters.Add(param);
                 conn.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     username = rdr["Username"].ToString();
                 }
                 conn.Close();
+
                 SqlCommand cmd2 = new SqlCommand("spWink", conn);
                 cmd2.CommandType = CommandType.StoredProcedure;
 
@@ -383,6 +388,7 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
 
                 SqlCommand cmd3 = new SqlCommand("spGetProfileByName", conn);
                 cmd3.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -390,28 +396,29 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 };
                 cmd3.Parameters.Add(paramUser);
                 conn.Open();
+
                 SqlDataReader rdr2 = cmd3.ExecuteReader();
                 while (rdr2.Read())
                 {
                     ID = Convert.ToInt32(rdr2["ID"]);
                 }
                 conn.Close();
+
                 SqlParameter paramSender = new SqlParameter()
                 {
                     ParameterName = "@Sender",
                     Value = yourusername
                 };
                 cmd2.Parameters.Add(paramSender);
+
                 SqlParameter paramSenderID = new SqlParameter()
                 {
-
                     ParameterName = "@SenderId",
                     Value = ID
-
                 };
+
                 SqlParameter paramNewID = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output
@@ -423,42 +430,48 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 conn.Close();
                 lblMessage.Visible = true;
                 lblMessage.Text = "You've sent a wink ;)";
+
                 //Add to notifications table
                 SqlCommand Notify = new SqlCommand("spGetNotifications", conn);
                 Notify.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter sendername = new SqlParameter()
                 {
                     ParameterName = "@Sender",
                     Value = yourusername
                 };
                 Notify.Parameters.Add(sendername);
+
                 SqlParameter recivername = new SqlParameter()
                 {
                     ParameterName = "@Reciver",
                     Value = username
                 };
                 Notify.Parameters.Add(recivername);
+
                 SqlParameter message = new SqlParameter()
                 {
                     ParameterName = "@Message",
                     Value = "New wink from " + yourusername
                 };
                 Notify.Parameters.Add(message);
+
                 SqlParameter id = new SqlParameter()
                 {
                     ParameterName = "@ID",
                     Value = userID
                 };
                 Notify.Parameters.Add(id);
+
                 SqlParameter SID = new SqlParameter()
                 {
                     ParameterName = "@SID",
                     Value = ID
                 };
                 Notify.Parameters.Add(SID);
+
                 SqlParameter paramNewID2 = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output
@@ -467,11 +480,7 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 conn.Open();
                 Notify.ExecuteNonQuery();
                 conn.Close();
-
-
-
             }
-
         }
 
         protected void btnDeleteComment_Click(object sender, EventArgs e)
@@ -483,6 +492,7 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
             {
                 SqlCommand cmd = new SqlCommand("spDeleteComment", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter param = new SqlParameter("@ID", CID);
                 cmd.Parameters.Add(param);
                 conn.Open();
@@ -491,8 +501,6 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
                 lblMessage.Visible = true;
                 lblMessage.Text = "Comment Deleted";
             }
-
-
         }
 
         protected void btnBlock_Click(object sender, EventArgs e)
@@ -502,12 +510,13 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(cs))
             {
-
                 SqlCommand cmd = new SqlCommand("spGetUserID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter param = new SqlParameter("@ID", userID);
                 cmd.Parameters.Add(param);
                 conn.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -517,21 +526,23 @@ Response.Redirect("~/UserProfile.aspx?ID=" + userID1);
 
                 SqlCommand cmd2 = new SqlCommand("spBlock",conn);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramBlocker = new SqlParameter()
                 {
                     ParameterName = "@Blocker",
                     Value=User.Identity.GetUserName()
                 };
                 cmd2.Parameters.Add(paramBlocker);
+
                 SqlParameter paramBlocked = new SqlParameter()
                 {
                     ParameterName = "@Blocked",
                     Value=username
                 };
                 cmd2.Parameters.Add(paramBlocked);
+
                 SqlParameter paramNewID2 = new SqlParameter()
                 {
-
                     ParameterName = "@NewID",
                     Value = -1,
                     Direction = ParameterDirection.Output

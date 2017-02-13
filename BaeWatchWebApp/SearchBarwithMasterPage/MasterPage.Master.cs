@@ -18,15 +18,15 @@ namespace SearchBarwithMasterPage
         public static string passingText;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         public Panel SearchPanel
-        { 
-         get 
-         {
-             return this.panelSearch;
-         }
+        {
+            get
+            {
+                return this.panelSearch;
+            }
         }
 
         public Button SearchButton
@@ -40,17 +40,15 @@ namespace SearchBarwithMasterPage
         public string SearchTerm
         {
 
-            get 
+            get
             {
                 return this.txtSearch.Text;
-            }    
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-           
-            Response.Redirect("~/SearchBar.aspx?"+txtSearch.Text); 
-            
+            Response.Redirect("~/SearchBar.aspx?"+txtSearch.Text);
         }
 
         protected void btnHome_Click(object sender, EventArgs e)
@@ -67,7 +65,6 @@ namespace SearchBarwithMasterPage
 
         protected void Friends_Click(object sender, EventArgs e)
         {
-            
             Response.Redirect("~/FriendsListaspx.aspx");
         }
 
@@ -75,45 +72,44 @@ namespace SearchBarwithMasterPage
         {
             string username = HttpContext.Current.User.Identity.GetUserName();
             int ID=0;
-             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
-             using (SqlConnection con = new SqlConnection(cs))
-             {
-                 SqlCommand cmd = new SqlCommand("spGetProfileByName",con);
-                 cmd.CommandType = CommandType.StoredProcedure;
-                 SqlParameter paramUser = new SqlParameter()
-                 {
-                     ParameterName = "@Username",
-                     Value = username
-                 };
-                 cmd.Parameters.Add(paramUser);
-                 con.Open();
-                 SqlDataReader rdr = cmd.ExecuteReader();
-                 while(rdr.Read())
-                 {
-                     ID = Convert.ToInt32(rdr["ID"]);
-                 }
-                 string UserID = ID.ToString();
-                 con.Close();
-                  Response.Redirect("~/UserProfile.aspx?ID=" + UserID);
+            string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("spGetProfileByName",con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-             }
+                SqlParameter paramUser = new SqlParameter()
+                {
+                    ParameterName = "@Username",
+                    Value = username
+                };
+                cmd.Parameters.Add(paramUser);
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while(rdr.Read())
+                {
+                    ID = Convert.ToInt32(rdr["ID"]);
+                }
+                string UserID = ID.ToString();
+                con.Close();
+                Response.Redirect("~/UserProfile.aspx?ID=" + UserID);
+            }
         }
 
         protected void btnSettings_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/AccountSettings.aspx");
+            Response.Redirect("~/AccountSettings2.aspx");
         }
 
         protected void btnWinks_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Winks.aspx");
-            
         }
 
         protected void btnNotfications_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Notifications.aspx");
         }
-
     }
 }

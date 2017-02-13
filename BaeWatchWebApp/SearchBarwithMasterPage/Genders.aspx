@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" runat="server">
     <link href="Homepage.css" rel="stylesheet" type="text/css" />
-    <b>Men Only </b>
+    <b>Males Only </b>
     <asp:GridView ID="HomepageGridView" runat="server" AutoGenerateColumns="false">
         <Columns>
             <asp:TemplateField HeaderText="ID">

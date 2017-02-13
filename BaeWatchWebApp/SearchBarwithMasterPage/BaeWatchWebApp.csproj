@@ -20,7 +20,6 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <ApplicationInsightsResourceId />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,17 +29,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PublishDatabaseSettings>
-      <Objects>
-        <ObjectGroup Name="BaewatchConnectionString-Deployment" Order="1">
-          <Destination Path="" />
-          <Object Type="DbFullSql">
-            <PreSource Path="Data Source=DESKTOP-6QOOHOU\SQLEXPRESS%3bInitial Catalog=Baewatch%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Debug\AutoScripts\BaewatchConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
-          </Object>
-        </ObjectGroup>
-      </Objects>
-    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -70,23 +58,7 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.2.0.4\lib\net45\Microsoft.Azure.KeyVault.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.Edm, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Edm.5.8.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.OData.5.8.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.1\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -118,12 +90,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -132,10 +98,6 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Spatial, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Spatial.5.8.1\lib\net40\System.Spatial.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -199,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountSettings.aspx" />
+    <Content Include="AccountSettings2.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -232,7 +195,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="userprofile.css" />
     <Content Include="Winks.aspx" />
-    <None Include="Properties\PublishProfiles\BaeWatch - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -252,7 +214,6 @@
     <Content Include="Views\web.config" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -280,6 +241,13 @@
     <Compile Include="AccountSettings.aspx.designer.cs">
       <DependentUpon>AccountSettings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AccountSettings2.aspx.cs">
+      <DependentUpon>AccountSettings2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountSettings2.aspx.designer.cs">
+      <DependentUpon>AccountSettings2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -290,7 +258,6 @@
     <Compile Include="DeleteConfirm.aspx.designer.cs">
       <DependentUpon>DeleteConfirm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
     <Compile Include="Females.aspx.cs">
       <DependentUpon>Females.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,9 +402,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Accounts\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

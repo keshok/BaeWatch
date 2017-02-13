@@ -16,13 +16,11 @@ namespace SearchBarwithMasterPage
         {
             string Orientaion = "Strait";
             GetData(Orientaion);
-
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
-
         }
 
         private void GetData(string Orientation)
@@ -36,7 +34,6 @@ namespace SearchBarwithMasterPage
                 SqlParameter searchParameter = new SqlParameter("@Orientation", Orientation);
                 cmd.Parameters.Add(searchParameter);
                 con.Open();
-
                 GridView1.DataSource = cmd.ExecuteReader();
                 GridView1.DataBind();
                 con.Close();

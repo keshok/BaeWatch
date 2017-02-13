@@ -10,7 +10,7 @@
         .auto-style3 {
             width: 223px;
         }
-        </style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" runat="server">
     <link href="Layout.css" rel="stylesheet" type="text/css" />
@@ -67,10 +67,10 @@
                 <asp:button ID="btnUpdateType" runat="server" text="Update" OnClick="btnUpdateType_Click" />
             </td>
         </tr>
-         <tr>
+        <tr>
             <td><b>Password</b></td>
             <td class="auto-style3">
-                 <asp:textBox runat="server" ID="Password" TextMode="Password" Width="509px" />
+                <asp:textBox runat="server" ID="Password" TextMode="Password" Width="509px" />
             </td>
             <td class="auto-style2">
                 <asp:button ID="btnUpdatePassword" runat="server" text="Update" OnClick="btnUpdatePassword_Click"  />

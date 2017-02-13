@@ -22,6 +22,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("Select * from Users", conn);
                 conn.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 HomepageGridView.DataSource = rdr;
                 HomepageGridView.DataBind();
@@ -34,43 +35,49 @@ namespace SearchBarwithMasterPage
             string Blocked= ((LinkButton)sender).Text;
             string Blocker = User.Identity.GetUserName();
             bool flag = false;
-             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
-             using (SqlConnection conn = new SqlConnection(cs))
-             {
-                 SqlCommand cmd = new SqlCommand("spFindBlock", conn);
-                 cmd.CommandType = CommandType.StoredProcedure;
-                 SqlParameter paramBlocker = new SqlParameter()
-                 {
-                     ParameterName = "@Blocker",
-                     Value=Blocker
-                 };
-                 cmd.Parameters.Add(paramBlocker);
-                 SqlParameter paramBlocked = new SqlParameter()
-                 {
-                     ParameterName = "@Blocked",
-                     Value=Blocked
-                 };
-                 cmd.Parameters.Add(paramBlocked);
-                 conn.Open();
-                 SqlDataReader rd = cmd.ExecuteReader();
-                 while (rd.Read())
-                 {
-                     if (rd[1].ToString() == Blocked || rd[1].ToString() == Blocker)
-                     {
-                         flag = true;
-                         StatusMessage.Text = "You have been blocked by this user";
-                         break;
-                     }
-                     conn.Close();
-                 }
-                 if (flag == true)
-                 {
-                     StatusMessage.Text = "You have been blocked by this user";
-                 }
-                 else
-                     Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
+            string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("spFindBlock", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-             }
+                SqlParameter paramBlocker = new SqlParameter()
+                {
+                    ParameterName = "@Blocker",
+                    Value = Blocker
+                };
+                cmd.Parameters.Add(paramBlocker);
+
+                SqlParameter paramBlocked = new SqlParameter()
+                {
+                    ParameterName = "@Blocked",
+                    Value = Blocked
+                };
+                cmd.Parameters.Add(paramBlocked);
+                conn.Open();
+
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    if (rd[1].ToString() == Blocked || rd[1].ToString() == Blocker)
+                    {
+                        flag = true;
+                        StatusMessage.Text = "You have been blocked by this user";
+                        break;
+                    }
+                    conn.Close();
+                }
+
+                if (flag == true)
+                {
+                    StatusMessage.Text = "You have been blocked by this user";
+                }
+
+                else
+                {
+                    Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
+                }
+            }
         }
 
         private void LoadImage()
@@ -80,11 +87,11 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("Select * from Users", conn);
                 conn.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 HomepageGridView.DataSource = rdr;
                 HomepageGridView.DataBind();
                 conn.Close();
-
             }
         }
 

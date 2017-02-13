@@ -21,6 +21,11 @@ namespace SearchBarwithMasterPage
 
         }
 
+        protected void btnHomePage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Homepage.aspx");
+        }
+
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/DeleteConfirm.aspx");
@@ -36,6 +41,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -43,6 +49,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -52,17 +59,18 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdateDescription", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramID = new SqlParameter()
                 {
                     ParameterName = "@ID",
                     Value = ID
                 };
                 cmd2.Parameters.Add(paramID);
+
                 SqlParameter paramDesc = new SqlParameter()
                 {
                     ParameterName = "@Description",
                     Value = Description
-
                 };
                 cmd2.Parameters.Add(paramDesc);
                 con.Open();
@@ -82,6 +90,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -89,6 +98,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -98,19 +108,19 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdateIntrests", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramID = new SqlParameter()
                 {
-
                     ParameterName = "@ID",
                     Value = ID
                 };
                 cmd2.Parameters.Add(paramID);
+
                 SqlParameter paramInt = new SqlParameter()
                 {
 
                     ParameterName = "@Intrest",
                     Value = Interests
-
                 };
                 cmd2.Parameters.Add(paramInt);
                 con.Open();
@@ -127,7 +137,6 @@ namespace SearchBarwithMasterPage
             if (Male.Checked)
             {
                 Gender = "Male";
-
             }
 
             else if (Female.Checked)
@@ -139,7 +148,6 @@ namespace SearchBarwithMasterPage
             {
 
                 Gender = "Other";
-
             }
 
 
@@ -149,6 +157,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -156,6 +165,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -165,23 +175,20 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdateGender", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramid = new SqlParameter()
                 {
                     ParameterName = "@ID",
                     Value = ID
-
                 };
                 cmd2.Parameters.Add(paramid);
 
                 SqlParameter paramGender = new SqlParameter()
                 {
-
                     ParameterName = "@Gender",
                     Value = Gender
-
                 };
                 cmd2.Parameters.Add(paramGender);
-
                 con.Open();
                 cmd2.ExecuteNonQuery();
                 con.Close();
@@ -215,6 +222,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -222,20 +230,24 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     ID = Convert.ToInt32(rdr["ID"]);
                 }
                 con.Close();
+
                 SqlCommand cmd2 = new SqlCommand("spUpdateOrein", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramID = new SqlParameter()
                 {
                     ParameterName = "ID",
                     Value = ID
                 };
                 cmd2.Parameters.Add(paramID);
+
                 SqlParameter paramO = new SqlParameter()
                 {
                     ParameterName = "@Orientation",
@@ -262,21 +274,21 @@ namespace SearchBarwithMasterPage
 
             if (LongT.Checked)
             {
-
                 Type = "Long Term";
             }
 
             if (Friends.Checked)
             {
                 Type = "Friends";
-
             }
+
             int ID = 0;
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -284,6 +296,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -293,13 +306,14 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdateType", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramID = new SqlParameter()
                 {
-
                     ParameterName = "@ID",
                     Value = ID
                 };
                 cmd2.Parameters.Add(paramID);
+
                 SqlParameter paramType = new SqlParameter()
                 {
                     ParameterName = "@Type",
@@ -319,13 +333,13 @@ namespace SearchBarwithMasterPage
             string fileName = Path.GetFileName(postedFile.FileName);
             string fileExtension = Path.GetExtension(fileName);
             String username = User.Identity.GetUserName();
-
             int ID = 0;
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -333,6 +347,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -345,12 +360,14 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdateProfilePic", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramId = new SqlParameter()
                 {
                     ParameterName = "@ID",
                     Value = ID
                 };
                 cmd2.Parameters.Add(paramId);
+
                 SqlParameter paramPic = new SqlParameter()
                 {
                     ParameterName = "@ImageData",
@@ -374,6 +391,7 @@ namespace SearchBarwithMasterPage
             {
                 SqlCommand cmd = new SqlCommand("spGetProfileByName", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramUser = new SqlParameter()
                 {
                     ParameterName = "@Username",
@@ -381,6 +399,7 @@ namespace SearchBarwithMasterPage
                 };
                 cmd.Parameters.Add(paramUser);
                 con.Open();
+
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -390,15 +409,16 @@ namespace SearchBarwithMasterPage
 
                 SqlCommand cmd2 = new SqlCommand("spUpdatePassword ", con);
                 cmd2.CommandType = CommandType.StoredProcedure;
+
                 SqlParameter paramID = new SqlParameter()
                 {
                     ParameterName = "@ID",
                     Value=ID
                 };
                 cmd2.Parameters.Add(paramID);
+
                 SqlParameter paramPass = new SqlParameter()
                 {
-
                     ParameterName = "@Password",
                     Value=Password.Text
                 };

@@ -35,6 +35,7 @@ namespace SearchBarwithMasterPage
 
                 SqlParameter searchParameter = new SqlParameter("@Name", name?? string.Empty);
                 cmd.Parameters.Add(searchParameter);
+
                 SqlParameter nameParameter = new SqlParameter("@Username", name ?? string.Empty);
                 cmd.Parameters.Add(nameParameter);
                 con.Open();

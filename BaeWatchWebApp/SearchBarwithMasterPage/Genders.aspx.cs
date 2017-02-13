@@ -29,6 +29,7 @@ namespace SearchBarwithMasterPage
             Response.Redirect("~/UserProfile.aspx?ID=" + ((LinkButton)sender).Text);
 
         }
+
         private void GetData(string Gender)
         {
             string cs = ConfigurationManager.ConnectionStrings["BaewatchConnectionString"].ConnectionString;
@@ -44,7 +45,6 @@ namespace SearchBarwithMasterPage
                 HomepageGridView.DataSource = cmd.ExecuteReader();
                 HomepageGridView.DataBind();
                 con.Close();
-
             }
         }
     }

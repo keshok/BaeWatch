@@ -37,7 +37,6 @@ namespace SearchBarwithMasterPage
             if (Male.Checked)
             {
                 Gender = "Male";
-
             }
 
             else if (Female.Checked)
@@ -47,9 +46,7 @@ namespace SearchBarwithMasterPage
 
             else if (Other.Checked)
             {
-
                 Gender = "Other";
-
             }
 
             if (Strait.Checked)
@@ -60,7 +57,6 @@ namespace SearchBarwithMasterPage
             if (Gay.Checked)
             {
                 O = "Gay";
-
             }
 
             if (OtherOrientation.Checked)
@@ -75,21 +71,17 @@ namespace SearchBarwithMasterPage
 
             if (LongT.Checked)
             {
-
                 Type = "Long Term";
             }
 
             if (Friends.Checked)
             {
                 Type = "Friends";
-
             }
 
             HttpPostedFile postedFile = ImageSearch.PostedFile;
             string fileName = Path.GetFileName(postedFile.FileName);
             string fileExtension = Path.GetExtension(fileName);
-
-
 
             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" ||
                 fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".gif" ||
@@ -101,12 +93,10 @@ namespace SearchBarwithMasterPage
                 var user = new IdentityUser() { UserName = txtUserName.Text };
                 IdentityResult result = manager.Create(user, txtPassword.Text);
 
-
                 if (result.Succeeded)
                 {
                     var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                     var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-
 
                     Stream stream = postedFile.InputStream;
                     BinaryReader binaryreader = new BinaryReader(stream);
@@ -132,9 +122,9 @@ namespace SearchBarwithMasterPage
                             Value = Password
                         };
                         cmd.Parameters.Add(pass);
+
                         SqlParameter paramDesc = new SqlParameter()
                         {
-
                             ParameterName = "@Description",
                             Value = Description
                         };
@@ -142,7 +132,6 @@ namespace SearchBarwithMasterPage
 
                         SqlParameter paramItrest = new SqlParameter()
                         {
-
                             ParameterName = "@Intrests",
                             Value = Interests
                         };
@@ -152,22 +141,18 @@ namespace SearchBarwithMasterPage
                         {
                             ParameterName = "@Orientation",
                             Value = O
-
                         };
-
                         cmd.Parameters.Add(paramO);
 
                         SqlParameter pType = new SqlParameter()
                         {
                             ParameterName = "@Type",
                             Value = Type
-
                         };
                         cmd.Parameters.Add(pType);
 
                         SqlParameter paramImageData = new SqlParameter()
                         {
-
                             ParameterName = "@ImageData",
                             Value = bytes
                         };
@@ -175,22 +160,18 @@ namespace SearchBarwithMasterPage
 
                         SqlParameter paramGender = new SqlParameter()
                         {
-
                             ParameterName = "@Gender",
                             Value = Gender
-
                         };
                         cmd.Parameters.Add(paramGender);
 
                         SqlParameter paramNewID = new SqlParameter()
                         {
-
                             ParameterName = "@NewID",
                             Value = -1,
                             Direction = ParameterDirection.Output
                         };
                         cmd.Parameters.Add(paramNewID);
-
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
@@ -202,6 +183,7 @@ namespace SearchBarwithMasterPage
                     authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
                     // Response.Redirect("~/Login.aspx");
                 }
+
                 else
                 {
                     lblMessage.Text = result.Errors.FirstOrDefault();
@@ -214,7 +196,6 @@ namespace SearchBarwithMasterPage
                 lblMessage.ForeColor = System.Drawing.Color.Red;
                 lblMessage.Text = "Failed. Please try again";
             }
-
         }
         /*
         protected void chkShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -231,11 +212,9 @@ namespace SearchBarwithMasterPage
 
         }
         */
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login.aspx");
         }
-
     }
 }

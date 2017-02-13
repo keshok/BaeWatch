@@ -1,8 +1,9 @@
-﻿<%@ Page Title="BaeWatch Beta (Release 1.0)" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Notifications.aspx.cs" Inherits="SearchBarwithMasterPage.Notifications" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Notifications.aspx.cs" Inherits="SearchBarwithMasterPage.Notifications" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" runat="server">
-<b>Your Notifications</b>
     <link href="Homepage.css" rel="stylesheet" type="text/css" />
+    <b>Your Notifications</b>
     <asp:GridView ID="NotificationsTable" runat="server" AutoGenerateColumns="false" style="background:lightgreen">
         <EmptyDataTemplate>No Notifications</EmptyDataTemplate>
         <Columns>
