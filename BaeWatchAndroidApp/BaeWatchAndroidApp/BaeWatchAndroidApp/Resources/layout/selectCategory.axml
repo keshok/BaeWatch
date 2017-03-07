@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:background="#4CAF50">
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/logo"
+      android:id="@+id/imageView2"
+      android:layout_toEndOf="@+id/button3"
+      android:layout_alignParentStart="true" />
+  <RadioButton
+      android:text="Homosexual"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton5"
+      android:layout_alignBaseline="@+id/radioButton4"
+      android:layout_alignBottom="@+id/radioButton4"
+      android:layout_toEndOf="@+id/radioButton4" />
+  <EditText
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:inputType="textPassword"
+      android:ems="10"
+      android:id="@+id/editText4"
+      android:layout_alignBaseline="@+id/textView6"
+      android:layout_alignBottom="@+id/textView6"
+      android:layout_alignStart="@+id/editText3" />
+  <RadioButton
+      android:text="Other"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton6"
+      android:layout_below="@+id/radioButton4"
+      android:layout_alignStart="@+id/radioButton4" />
+  <TextView
+      android:text="Search Assitance"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView71"
+      android:textStyle="normal|bold"
+      android:layout_below="@+id/textView"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="12dp" />
+  <RadioButton
+      android:text="Friendship"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton3"
+      android:layout_below="@+id/radioButton2"
+      android:layout_centerHorizontal="true" />
+  <TextView
+      android:text="Relationship Type"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView7"
+      android:textStyle="normal|bold"
+      android:layout_below="@+id/radioButton6"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="12dp" />
+  <RadioButton
+      android:text="Short Term"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton2"
+      android:layout_alignBaseline="@+id/textView7"
+      android:layout_alignBottom="@+id/textView7"
+      android:layout_alignStart="@+id/radioButton3" />
+  <RadioButton
+      android:text="Straight"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton4"
+      android:layout_alignBaseline="@+id/textView3"
+      android:layout_alignBottom="@+id/textView3"
+      android:layout_alignStart="@+id/radioButton2" />
+  <TextView
+      android:text="Sexual Orientation"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView3"
+      android:textStyle="normal|bold"
+      android:layout_below="@+id/imageView2"
+      android:layout_alignEnd="@+id/textView7"
+      android:layout_marginTop="164dp" />
+  <TextView
+      android:text="Select Category"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView"
+      android:textSize="18sp"
+      android:fontFamily="sans-serif-condensed"
+      android:textStyle="normal|bold"
+      android:layout_below="@+id/imageView2"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="16dp" />
+  <EditText
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:inputType="textPersonName"
+      android:ems="10"
+      android:id="@+id/editText3"
+      android:layout_below="@+id/textView"
+      android:layout_toEndOf="@+id/textView3" />
+  <RadioButton
+      android:text="Male"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton7"
+      android:layout_alignBaseline="@+id/radioButton8"
+      android:layout_alignBottom="@+id/radioButton8"
+      android:layout_alignStart="@+id/radioButton4" />
+  <RadioButton
+      android:text="Long Term"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton"
+      android:layout_alignBaseline="@+id/radioButton2"
+      android:layout_alignBottom="@+id/radioButton2"
+      android:layout_toEndOf="@+id/radioButton2" />
+  <RadioButton
+      android:text="Female"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton8"
+      android:layout_alignBaseline="@+id/radioButton9"
+      android:layout_alignBottom="@+id/radioButton9"
+      android:layout_toEndOf="@+id/radioButton6" />
+  <RadioButton
+      android:text="Other"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/radioButton9"
+      android:layout_above="@+id/radioButton5"
+      android:layout_toEndOf="@+id/radioButton8" />
+  <TextView
+      android:text="Gender"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView4"
+      android:textStyle="normal|bold"
+      android:layout_alignBaseline="@+id/radioButton7"
+      android:layout_alignBottom="@+id/radioButton7"
+      android:layout_alignParentStart="true"
+      android:layout_alignEnd="@+id/textView6" />
+  <Button
+      android:text="Search"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/button211"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentStart="true"
+      android:layout_marginBottom="22dp" />
+</RelativeLayout>
