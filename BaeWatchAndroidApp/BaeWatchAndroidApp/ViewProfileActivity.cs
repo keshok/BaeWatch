@@ -12,15 +12,15 @@ using Android.Widget;
 
 namespace BaeWatchAndroidApp
 {
-    [Activity(Label = "MyFriendsActivity")]
-    public class MyFriendsActivity : Activity
+    [Activity(Label = "ViewProfileActivity")]
+    public class ViewProfileActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.Friends);
+            SetContentView(Resource.Layout.viewProfile);
         }
     }
 }

@@ -114,6 +114,9 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f05001c
 			public const int imageView4 = 2131034140;
 			
+			// aapt resource value: 0x7f050026
+			public const int imageView5 = 2131034150;
+			
 			// aapt resource value: 0x7f050011
 			public const int radioButton = 2131034129;
 			
@@ -144,6 +147,18 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f05000d
 			public const int textView = 2131034125;
 			
+			// aapt resource value: 0x7f050022
+			public const int textView10 = 2131034146;
+			
+			// aapt resource value: 0x7f050024
+			public const int textView11 = 2131034148;
+			
+			// aapt resource value: 0x7f050025
+			public const int textView12 = 2131034149;
+			
+			// aapt resource value: 0x7f050027
+			public const int textView13 = 2131034151;
+			
 			// aapt resource value: 0x7f05001f
 			public const int textView2 = 2131034143;
 			
@@ -167,6 +182,9 @@ namespace BaeWatchAndroidApp
 			
 			// aapt resource value: 0x7f050013
 			public const int textView8 = 2131034131;
+			
+			// aapt resource value: 0x7f050023
+			public const int textView9 = 2131034147;
 			
 			static Id()
 			{
@@ -198,6 +216,9 @@ namespace BaeWatchAndroidApp
 			
 			// aapt resource value: 0x7f030005
 			public const int Start = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int viewProfile = 2130903046;
 			
 			static Layout()
 			{
