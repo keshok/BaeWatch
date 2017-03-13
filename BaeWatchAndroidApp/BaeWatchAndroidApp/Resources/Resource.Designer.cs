@@ -69,6 +69,9 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f050000
 			public const int activity_main = 2131034112;
 			
+			// aapt resource value: 0x7f050020
+			public const int activity_main2 = 2131034144;
+			
 			// aapt resource value: 0x7f05001e
 			public const int activity_signup = 2131034142;
 			
@@ -78,8 +81,8 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f050015
 			public const int button2 = 2131034133;
 			
-			// aapt resource value: 0x7f050021
-			public const int button211 = 2131034145;
+			// aapt resource value: 0x7f050022
+			public const int button211 = 2131034146;
 			
 			// aapt resource value: 0x7f050002
 			public const int button3 = 2131034114;
@@ -114,8 +117,8 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f05001c
 			public const int imageView4 = 2131034140;
 			
-			// aapt resource value: 0x7f050026
-			public const int imageView5 = 2131034150;
+			// aapt resource value: 0x7f050027
+			public const int imageView5 = 2131034151;
 			
 			// aapt resource value: 0x7f050011
 			public const int radioButton = 2131034129;
@@ -147,17 +150,17 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f05000d
 			public const int textView = 2131034125;
 			
-			// aapt resource value: 0x7f050022
-			public const int textView10 = 2131034146;
-			
-			// aapt resource value: 0x7f050024
-			public const int textView11 = 2131034148;
+			// aapt resource value: 0x7f050023
+			public const int textView10 = 2131034147;
 			
 			// aapt resource value: 0x7f050025
-			public const int textView12 = 2131034149;
+			public const int textView11 = 2131034149;
 			
-			// aapt resource value: 0x7f050027
-			public const int textView13 = 2131034151;
+			// aapt resource value: 0x7f050026
+			public const int textView12 = 2131034150;
+			
+			// aapt resource value: 0x7f050028
+			public const int textView13 = 2131034152;
 			
 			// aapt resource value: 0x7f05001f
 			public const int textView2 = 2131034143;
@@ -177,14 +180,14 @@ namespace BaeWatchAndroidApp
 			// aapt resource value: 0x7f05000b
 			public const int textView7 = 2131034123;
 			
-			// aapt resource value: 0x7f050020
-			public const int textView71 = 2131034144;
+			// aapt resource value: 0x7f050021
+			public const int textView71 = 2131034145;
 			
 			// aapt resource value: 0x7f050013
 			public const int textView8 = 2131034131;
 			
-			// aapt resource value: 0x7f050023
-			public const int textView9 = 2131034147;
+			// aapt resource value: 0x7f050024
+			public const int textView9 = 2131034148;
 			
 			static Id()
 			{
@@ -212,13 +215,16 @@ namespace BaeWatchAndroidApp
 			public const int Register = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int selectCategory = 2130903044;
+			public const int Search = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Start = 2130903045;
+			public const int selectCategory = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int viewProfile = 2130903046;
+			public const int Start = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int viewProfile = 2130903047;
 			
 			static Layout()
 			{
