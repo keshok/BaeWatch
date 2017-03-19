@@ -48,6 +48,7 @@
         <activity
             android:name=".FindMyFriendsActivity"
             android:label="@string/title_activity_find_my_friends" />
+        <activity android:name=".LostPasswordActivity"></activity>
     </application>
 
 </manifest>

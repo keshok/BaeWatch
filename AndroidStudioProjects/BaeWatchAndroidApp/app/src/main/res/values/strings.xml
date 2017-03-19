@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">BaeWatchAndroidApp</string>
+    <string name="lostpass"><a href="">Click Here</a></string>
     <string name="title_activity_find_my_friends">Find My Friends</string>
     <string-array name="planets_array">
         <item>Mercury</item>
