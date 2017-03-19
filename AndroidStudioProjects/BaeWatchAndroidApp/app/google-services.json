@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "655500278318",
+    "firebase_url": "https://baewatch-87a5e.firebaseio.com",
+    "project_id": "baewatch-87a5e",
+    "storage_bucket": "baewatch-87a5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655500278318:android:f5706e54463c9782",
+        "android_client_info": {
+          "package_name": "com.baewatch.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655500278318-fvpjuqq82f28s9rfu2l1uvhu6d6mbvmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzPd0oS8xKjoYt2QRN4a4hBs0HJ9dU10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655500278318:android:1d07c1626b73c786",
+        "android_client_info": {
+          "package_name": "ca.centennialcollege.comp304.baewatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655500278318-cc6hrdl4fbk7bsit9dfu5qv0jdumcc5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.centennialcollege.comp304.baewatch",
+            "certificate_hash": "fd049d2c833bb2508644fa06b69390991869a319"
+          }
+        },
+        {
+          "client_id": "655500278318-fvpjuqq82f28s9rfu2l1uvhu6d6mbvmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzPd0oS8xKjoYt2QRN4a4hBs0HJ9dU10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655500278318-fvpjuqq82f28s9rfu2l1uvhu6d6mbvmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655500278318:android:8b8ea260103b498d",
+        "android_client_info": {
+          "package_name": "ca.centennialcollege.comp313.baewatchandroidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655500278318-d9cruteeain3lnfikil8j7csqo0u41s1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.centennialcollege.comp313.baewatchandroidapp",
+            "certificate_hash": "fd049d2c833bb2508644fa06b69390991869a319"
+          }
+        },
+        {
+          "client_id": "655500278318-fvpjuqq82f28s9rfu2l1uvhu6d6mbvmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzPd0oS8xKjoYt2QRN4a4hBs0HJ9dU10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655500278318-fvpjuqq82f28s9rfu2l1uvhu6d6mbvmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
