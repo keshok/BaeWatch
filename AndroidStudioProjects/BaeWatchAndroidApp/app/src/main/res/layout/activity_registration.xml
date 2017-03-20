@@ -147,22 +147,20 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
         android:id="@+id/imageView"
-        android:layout_above="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
         android:text="Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:id="@+id/textView"
-        android:layout_marginBottom="27dp"
-        android:layout_above="@+id/textView2"
-        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"
         android:textColor="#FFFFFF"
-        android:layout_marginLeft="30dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_marginLeft="32dp"
+        android:layout_above="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp" />
     <TextView
         android:text="Relationship Type"
         android:layout_width="wrap_content"
@@ -190,4 +188,16 @@
         android:layout_alignBottom="@+id/radioButton2"
         android:layout_alignStart="@+id/radioButton6"
         android:layout_alignLeft="@+id/radioButton6" />
+    <TextView
+        android:text="User Registration"
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="normal|bold" />
 </RelativeLayout>

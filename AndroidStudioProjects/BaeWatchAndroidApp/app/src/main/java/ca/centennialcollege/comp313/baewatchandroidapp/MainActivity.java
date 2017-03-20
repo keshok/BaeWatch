@@ -13,6 +13,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    public void onLogo(View view) {
+        Intent intent = new Intent(this, HomeFeedActivity.class);
+        startActivity(intent);
+    }
+
     public void onLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
@@ -22,5 +27,4 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
-
 }
